@@ -17,7 +17,7 @@ and Omniplanner looks at everyone's Google Calendar to suggest the best evening,
 
 ```bash
 npm install
-cp .env.example .env        # then fill AUTH_SECRET: npx auth secret
+cp .env.example .env        # then fill AUTH_SECRET (npx auth secret) and the database URLs
 npx prisma db push
 npm run demo                # creates fake friends with fake calendars and prints a login link
 SAMEN_DEMO=1 npm run dev
@@ -40,9 +40,27 @@ SAMEN_DEMO=1 npm run dev
 > *Audience*. You don't need Google's verification for a small group of friends. Everyone
 > will see a "Google hasn't verified this app" screen once and can click *Advanced → Continue*.
 
+## Put it online (Vercel + Neon, both free)
+
+1. Sign up at <https://vercel.com> with your GitHub account.
+2. **Add New → Project** and import `omniplanner`. Don't deploy yet if it asks, or let the first deploy fail; that's fine.
+3. In the project, go to **Storage → Create Database → Neon (Postgres)** and connect it to the project.
+   This adds `DATABASE_URL` and `DATABASE_URL_UNPOOLED` automatically.
+4. Go to **Settings → Environment Variables** and add:
+   - `AUTH_SECRET`: a new random value (`npx auth secret`)
+   - `AUTH_GOOGLE_ID` and `AUTH_GOOGLE_SECRET`
+   - `APP_TIMEZONE` = `Europe/Amsterdam`
+5. **Deployments → Redeploy**. The build creates the database tables automatically.
+6. In Google Cloud Console, add `https://<your-app>.vercel.app/api/auth/callback/google`
+   as an **Authorized redirect URI** on your OAuth client.
+7. Add your friends as **test users**, or publish the app (see the warning above).
+
+For local development, copy the two database URLs from Vercel (**Storage → your database → .env.local**)
+into your own `.env`. You can also create a separate Neon branch for development.
+
 ## Tech
 
-Next.js 15 (App Router, server actions) · Auth.js v5 · Prisma + SQLite · Tailwind CSS v4 · Luxon
+Next.js 15 (App Router, server actions) · Auth.js v5 · Prisma + Postgres · Tailwind CSS v4 · Luxon
 
 - `src/lib/scheduler.ts`: the slot-finding algorithm (`npm test` runs its tests)
 - `src/lib/google.ts`: token refresh, the FreeBusy API and the "add to calendar" link
@@ -50,7 +68,6 @@ Next.js 15 (App Router, server actions) · Auth.js v5 · Prisma + SQLite · Tail
 
 ## Ideas for later
 
-- Hosting (Vercel + a hosted database such as Turso or Neon instead of local SQLite)
 - Include all of a user's calendars, not only the primary one
 - Notifications when a new activity is suggested or a date is picked
 - Recurring hangouts ("monthly board game night")

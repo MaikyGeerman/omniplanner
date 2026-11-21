@@ -3,8 +3,11 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = env("DATABASE_URL")
+  provider  = "postgresql"
+  // Pooled connection, used by the app
+  url       = env("DATABASE_URL")
+  // Direct connection, used by `prisma db push` (Neon/Vercel: DATABASE_URL_UNPOOLED)
+  directUrl = env("DATABASE_URL_UNPOOLED")
 }
 
 // ---------- Auth.js tables ----------
