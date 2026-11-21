@@ -4,10 +4,10 @@ export type Lang = "nl" | "en";
 
 const dict = {
   nl: {
-    tagline: "Plan samen dingen met je vrienden. Samen kijkt in jullie agenda's en vindt een moment dat voor iedereen werkt.",
+    tagline: "Plan samen dingen met je vrienden. Omniplanner kijkt in jullie agenda's en vindt een moment dat voor iedereen werkt.",
     signIn: "Inloggen met Google",
     signOut: "Uitloggen",
-    privacy: "Samen ziet alleen wanneer je bezet bent, nooit wat je doet.",
+    privacy: "Omniplanner ziet alleen wanneer je bezet bent, nooit wat je doet.",
     yourGroups: "Jouw groepen",
     noGroups: "Je zit nog niet in een groep. Maak er een aan of gebruik een uitnodigingslink.",
     newGroup: "Nieuwe groep",
@@ -55,10 +55,10 @@ const dict = {
     deleteActivity: "Verwijderen",
   },
   en: {
-    tagline: "Make plans with your friends. Samen checks your calendars and finds a time that works for everyone.",
+    tagline: "Make plans with your friends. Omniplanner checks your calendars and finds a time that works for everyone.",
     signIn: "Sign in with Google",
     signOut: "Sign out",
-    privacy: "Samen only sees when you're busy, never what you're doing.",
+    privacy: "Omniplanner only sees when you're busy, never what you're doing.",
     yourGroups: "Your groups",
     noGroups: "You're not in a group yet. Create one or use an invite link.",
     newGroup: "New group",

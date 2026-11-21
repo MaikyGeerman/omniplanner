@@ -3,7 +3,7 @@ import Google from "next-auth/providers/google";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import { db } from "@/lib/db";
 
-// Only free/busy access: Samen can see WHEN you're busy, never WHAT you're doing.
+// Only free/busy access: Omniplanner can see WHEN you're busy, never WHAT you're doing.
 export const CALENDAR_SCOPE = "https://www.googleapis.com/auth/calendar.freebusy";
 
 export const { handlers, auth, signIn, signOut } = NextAuth({

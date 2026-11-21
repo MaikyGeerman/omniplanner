@@ -1,16 +1,16 @@
-# Samen
+# Omniplanner
 
 Plan activities with your friends. Someone suggests an idea, everyone says whether they're in,
-and Samen looks at everyone's Google Calendar to suggest the best evening, day or weekend.
+and Omniplanner looks at everyone's Google Calendar to suggest the best evening, day or weekend.
 
-🔒 Samen only asks for **free/busy** access (`calendar.freebusy`): it sees *when* you're busy, never *what* you're doing.
+🔒 Omniplanner only asks for **free/busy** access (`calendar.freebusy`): it sees *when* you're busy, never *what* you're doing.
 
 ## How it works
 
 1. Sign in with Google and create a group, then share the invite link with your friends.
 2. Suggest an activity and choose what kind of time it needs: *an evening*, *during the day*, *any time* or *a whole weekend*. Also set how long it takes and the minimum number of people.
 3. Friends vote ✅ in / 🤔 maybe / 🙅 pass.
-4. Samen checks the free/busy calendars of everyone who didn't pass and ranks the options. People who are "in" count most. Sooner dates and Friday/Saturday get a small bonus.
+4. Omniplanner checks the free/busy calendars of everyone who didn't pass and ranks the options. People who are "in" count most. Sooner dates and Friday/Saturday get a small bonus.
 5. Pick a time, then open a pre-filled Google Calendar event with everyone as guests.
 
 ## Try it without Google (demo mode)
@@ -25,7 +25,7 @@ SAMEN_DEMO=1 npm run dev
 
 ## Set up Google sign-in
 
-1. Go to <https://console.cloud.google.com> and create a project (e.g. "Samen").
+1. Go to <https://console.cloud.google.com> and create a project (e.g. "Omniplanner").
 2. **APIs & Services → Library**: enable **Google Calendar API**.
 3. **Google Auth Platform → Branding / Audience**: choose *External* and fill in the app name and your email.
    - Under **Data access**, add the scope `https://www.googleapis.com/auth/calendar.freebusy`.

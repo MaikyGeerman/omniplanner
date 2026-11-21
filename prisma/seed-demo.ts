@@ -1,4 +1,4 @@
-// Demo data for trying Samen without Google: npm run demo
+// Demo data for trying Omniplanner without Google: npm run demo
 import { randomBytes } from "node:crypto";
 import { PrismaClient } from "@prisma/client";
 
@@ -8,7 +8,7 @@ async function main() {
   const names = ["Jij (demo)", "Anna", "Bram", "Sanne", "Daan"];
   const users: { id: string }[] = [];
   for (const name of names) {
-    const email = `${name.split(" ")[0].toLowerCase()}@demo.samen`;
+    const email = `${name.split(" ")[0].toLowerCase()}@demo.omniplanner`;
     users.push(await db.user.upsert({ where: { email }, create: { email, name }, update: {} }));
   }
   const group = await db.group.create({
