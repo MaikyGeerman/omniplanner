@@ -18,7 +18,7 @@ and Omniplanner looks at everyone's Google Calendar to suggest the best evening,
 ```bash
 npm install
 cp .env.example .env        # then fill AUTH_SECRET (npx auth secret) and the database URLs
-npx prisma db push
+npm run db:push
 npm run demo                # creates fake friends with fake calendars and prints a login link
 SAMEN_DEMO=1 npm run dev
 ```
